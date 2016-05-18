@@ -8,7 +8,7 @@ Segment words and filter stop words with [HanLP](https://github.com/hankcs/HanLP
 
 ### 1.1 TextRank
 
-With file name and content as input,return 5 keywords extracted by TextRank.For example
+With title and content of a document as input,return 5 keywords of the documents.For example
 
 ```java
 String title = "关键词抽取";
@@ -19,7 +19,7 @@ System.out.println(TextRank.getKeyword(title, content));
 ```
 
 
-You can change keywords number and the size of co-occur window ,whose default values are 5 and 3,respectively.For example:
+You can change the number of keywords and the size of co-occur window ,whose default values are 5 and 3,respectively.For example:
 ```java
 TextRank.setKeywordNumber(6);
 TextRank.setWindowSize(4);

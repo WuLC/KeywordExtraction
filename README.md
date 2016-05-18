@@ -1,4 +1,4 @@
-Keyword Extraction in Java
+# Keyword Extraction in Java
 
 Serveral implementations of keyword extraction,including TextRank,TF-IDF,TextRank along with TFTF-IDF
 
@@ -6,7 +6,7 @@ Segment words and filter stop words with [HanLP](https://github.com/hankcs/HanLP
 
 ## Algorithm
 
-## TextRank
+### TextRank
 
 With file name and content as input,return 5 keywords extracted by TextRank.For example
 

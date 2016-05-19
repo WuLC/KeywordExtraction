@@ -1,3 +1,11 @@
+/**
+* Author: WuLC
+* Date:   2016-05-18 23:10:12
+* Last modified by:   WuLC
+* Last Modified time: 2016-05-19 22:20:19
+* Email: liangchaowu5@gmail.com
+*/
+
 package com.lc.nlp.keyword.algorithm;
 
 /**

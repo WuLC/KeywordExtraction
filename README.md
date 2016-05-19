@@ -2,7 +2,7 @@
 
 Serveral implementations of keyword extraction,including TextRank,TF-IDF,TextRank along with TFTF-IDF
 
-Segment words and filter stop words with [HanLP](https://github.com/hankcs/HanLP)
+Segment words and filter stop words relies on [HanLP](https://github.com/hankcs/HanLP)
 
 ## 1. Algorithm
 

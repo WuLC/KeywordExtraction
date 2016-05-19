@@ -2,17 +2,14 @@
 * Author: WuLC
 * Date:   2016-05-18 23:10:12
 * Last modified by:   WuLC
-* Last Modified time: 2016-05-19 22:20:19
+* Last Modified time: 2016-05-19 22:32:56
 * Email: liangchaowu5@gmail.com
-*/
-
-package com.lc.nlp.keyword.algorithm;
-
-/**
- * Function: extract keywords of document through TextRank algorithm
- * Input(String): target text that keywords will be extracted from 
- * Output(List<String>): keywords of the text
+* **************************************************************
+* Function: extract keywords of document through TextRank algorithm
+* Input(String): target text that keywords will be extracted from 
+* Output(List<String>): keywords of the text
  */
+package com.lc.nlp.keyword.algorithm;
 
 import java.util.*;
 import com.hankcs.hanlp.HanLP;

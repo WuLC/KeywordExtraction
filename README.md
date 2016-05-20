@@ -1,10 +1,13 @@
 # Keyword Extraction in Java
 
-Serveral implementations of keyword extraction,including TextRank,TF-IDF,TextRank along with TFTF-IDF.Segment words and filter stop words relies on [HanLP](https://github.com/hankcs/HanLP)
+Several implementations of keyword extraction,including TextRank,TF-IDF,TextRank along with TFTF-IDF.Segment words and filter stop words relies on [HanLP](https://github.com/hankcs/HanLP)
 
 The repository mainly consists of three parts:
+
 **1. Algorithm**: implementation of serveral algorithms of keyword exraction,including TextRank,TF-IDF and methonds of integrate TextRank with TFTF-IDF
+
 **2.Evaluate:**the method to evaluate the result of the algorithm,currently only the F1 Score if available
+
 **3.Parse Documents:**methods provided to read the contens of the corpus used for test
  
 

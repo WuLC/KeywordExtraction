@@ -15,6 +15,8 @@ The repository mainly consists of three parts:
 
 ### 1.1 TextRank
 
+Source File: `TexkRank.java`
+
 With title and content of a document as input,return 5 keywords of the documents.For example
 
 ```java
@@ -37,6 +39,14 @@ System.out.println(TextRank.getKeyword(title, content));
 ```
 
 From the output you can see clearly the number of keywords has change due to `TextRank.setKeywordNumber(6);`,and the size of co-occur window is not visible in the result but will affect the resutl if you are aware of the principle of TextRank algorithm.
+
+### 1.2 TF-IDF
+
+Source File: `TFIDF.java`
+
+### 1.3 TextRank With Multiple Window
+
+### 1.4 TextRank With TF-IDF
 
 ## 2. Evaluate
 

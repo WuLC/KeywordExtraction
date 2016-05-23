@@ -2,7 +2,7 @@
 * Author: WuLC
 * Date:   2016-05-22 17:46:15
 * Last modified by:   WuLC
-* Last Modified time: 2016-05-22 17:48:47
+* Last Modified time: 2016-05-23 16:17:20
 * Email: liangchaowu5@gmail.com
 ************************************************************
 * Function:get keywords of file through TF-IDF algorithm
@@ -31,7 +31,6 @@ public class TFIDF
      */
     public static HashMap<String, Float> getTF(String fileContent)
     {    
-    	// 对文件进行分词操作
     	List<Term> terms=new ArrayList<Term>();
         ArrayList<String> words = new ArrayList<String>();
        
@@ -44,7 +43,7 @@ public class TFIDF
         	}      		
         }
         
-        //统计分词后的list，得到每个词的TF值
+        // get TF values
     	 HashMap<String, Integer> wordCount = new HashMap<String, Integer>();
     	 HashMap<String, Float> TFValues = new HashMap<String, Float>();
     	 for(String word : words)
@@ -60,7 +59,7 @@ public class TFIDF
          }
     	 
          int wordLen = words.size();
-         //遍历HashMap一种常用方法
+         //traverse the HashMap
          Iterator<Map.Entry<String, Integer>> iter = wordCount.entrySet().iterator(); 
          while(iter.hasNext())
          {
@@ -114,9 +113,9 @@ public class TFIDF
     {
     	List<String> fileList = new ArrayList<String>();
     	fileList = ReadDir.readDirFileNames(dirPath);
-    	int docNum = fileList.size(); //得到文章总数
+    	int docNum = fileList.size();  
     	
-        Map<String, Set<String>> passageWords = new HashMap<String, Set<String>>(); //存储每篇文章出现的不重复的单词       
+        Map<String, Set<String>> passageWords = new HashMap<String, Set<String>>();        
         // get words that are not repeated of a file 
         for(String filePath:fileList)
         {   
@@ -134,8 +133,8 @@ public class TFIDF
             passageWords.put(filePath, words);
         }
         
-        // 计算每个词的idf值
-        HashMap<String, Integer> wordPassageNum = new HashMap<String, Integer>();//存储单词及其出现的文章数量
+        // get IDF values
+        HashMap<String, Integer> wordPassageNum = new HashMap<String, Integer>();
         for(String filePath : fileList)
         {
             Set<String> wordSet = new HashSet<String>();
@@ -149,7 +148,7 @@ public class TFIDF
             }
         }
         
-        HashMap<String, Float> wordIDF = new HashMap<String, Float>(); // 存储每个词的IDF值
+        HashMap<String, Float> wordIDF = new HashMap<String, Float>(); 
         Iterator<Map.Entry<String, Integer>> iter_dict = wordPassageNum.entrySet().iterator();
         while(iter_dict.hasNext())
         {
@@ -169,13 +168,13 @@ public class TFIDF
      */
     public static Map<String, HashMap<String, Float>> getDirTFIDF(String dirPath)
     {
-        HashMap<String, HashMap<String, Float>> dirFilesTF = new HashMap<String, HashMap<String, Float>>(); //目录下各个文件的各个词的TF值
-        HashMap<String, Float> dirFilesIDF = new HashMap<String, Float>();//目录下所有词的IDF值
+        HashMap<String, HashMap<String, Float>> dirFilesTF = new HashMap<String, HashMap<String, Float>>();  
+        HashMap<String, Float> dirFilesIDF = new HashMap<String, Float>(); 
         
         dirFilesTF = TFIDF.tfForDir(dirPath);
         dirFilesIDF = TFIDF.idfForDir(dirPath);
         
-        Map<String, HashMap<String, Float>> dirFilesTFIDF = new HashMap<String, HashMap<String, Float>>();//目录下所有词的TFIDF值
+        Map<String, HashMap<String, Float>> dirFilesTFIDF = new HashMap<String, HashMap<String, Float>>(); 
         Map<String,Float> singlePassageWord= new HashMap<String,Float>();
         List<String> fileList = new ArrayList<String>();
         fileList = ReadDir.readDirFileNames(dirPath);
@@ -227,7 +226,7 @@ public class TFIDF
 	        	@Override
 	        	public int compare(Map.Entry<String,Float> c1,Map.Entry<String,Float> c2)
 	        	{
-	        		return c2.getValue().compareTo(c1.getValue()); //降序排序。如果要升序排序改成c1.getValue().compareTo(c2.getValue())	        		
+	        		return c2.getValue().compareTo(c1.getValue()); 	        		
 	        	}
 	        }
 	        );

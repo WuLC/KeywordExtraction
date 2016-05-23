@@ -2,7 +2,7 @@
 * Author: WuLC
 * Date:   2016-05-22 17:46:15
 * Last modified by:   WuLC
-* Last Modified time: 2016-05-23 16:17:20
+* Last Modified time: 2016-05-23 23:31:25
 * Email: liangchaowu5@gmail.com
 ************************************************************
 * Function:get keywords of file through TF-IDF algorithm
@@ -24,6 +24,17 @@ import com.lc.nlp.parsedoc.*;
 public class TFIDF
 {
 	
+    private static int keywordsNumber = 5;
+    
+    /**
+     * change the number of keywords,default 5
+     * @param keywordNum(int): number of keywords that need to be extracted
+     */
+    public static void setKeywordsNumber(int keywordNum)
+    {
+        keywordsNumber = keywordNum;
+    }
+
 	/**
      * calculate TF value of each word in terms of  the content of file
      * @param fileContent(String): content of file
@@ -202,7 +213,7 @@ public class TFIDF
      * @param keywordNum(int): number of keywords to extract
      * @return(Map<String,List<String>>): path of file and its corresponding keywords
      */
-    public static Map<String,List<String>> getKeywords(String dirPath, int keywordNum)
+    public static Map<String,List<String>> getKeywords(String dirPath)
     {
     	List<String> fileList = new ArrayList<String>();
     	fileList = ReadDir.readDirFileNames(dirPath);
@@ -233,7 +244,7 @@ public class TFIDF
 	        	        
 	       // get keywords 
             List<String> systemKeywordList=new ArrayList<String>();
-            for(int k=0;k<keywordNum;k++)
+            for(int k=0;k<keywordsNumber;k++)
             {
             	try
             	{

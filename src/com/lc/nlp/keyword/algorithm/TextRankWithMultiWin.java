@@ -2,20 +2,16 @@
 * Author: WuLC
 * Date:   2016-05-23 16:04:42
 * Last modified by:   WuLC
-* Last Modified time: 2016-05-23 16:28:19
+* Last Modified time: 2016-05-24 16:00:11
 * Email: liangchaowu5@gmail.com
 ***********************************************************************************
 * Function: integrate results of TextRank algorithm with different size of co-occurance window
-* Input: path of directory of the corpus
-* Output: keywords of each document in the directory
+* Input: title and content of a document
+* Output: keywords of  the document
 */
-
 package com.lc.nlp.keyword.algorithm;
 
 import java.util.*;
-
-import com.lc.nlp.parsedoc.ReadDir;
-import com.lc.nlp.parsedoc.ReadFile;
 
 public class TextRankWithMultiWin 
 {
@@ -32,44 +28,37 @@ public class TextRankWithMultiWin
 	
 	
 	/**
-	 * integrate the results of TextRank algorithm  with different co-occurance  window
-	 * @param dirPath(String): path of directory of the corpus
+	 * integrate the results of TextRank algorithm  with different co-occurance window
+	 * @param title(String): title of the document 
+	 * @param content(String): content of the document
 	 * @param minWindow(int): the minimum size of co-occurance window
 	 * @param maxWindow(int): the maximum size of co-occurance window
-	 * @param sysKeywordNum(int): number of keywords to extract
-	 * @return(Map<String,List<String>>): keywords of each document of the directory
+	 * @return(List<String>): keywords of the document
 	 */
-	public static Map<String,List<String>> integrateMultiWindow(String dirPath, int minWindow, int maxWindow)
+	public static List<String> integrateMultiWindow(String title,String content, int minWindow, int maxWindow)
 	{
-		Map<String,List<String>> result = new HashMap<String,List<String>>();
-		Map<String,Float> tempKeywordScore = new HashMap<String,Float>();
 		
-		List<String> fileList = ReadDir.readDirFileNames(dirPath);
+		Map<String,Float> tempKeywordScore = new HashMap<String,Float>();
+		Map<String,Float> allKeywordScore = new HashMap<String,Float>();	
 		String key=null;
 		Float value=null;
-
-		for(String filePath:fileList)
-		{   
-			Map<String,Float> allKeywordScore = new HashMap<String,Float>();
-			// remember to modify the loadFile method in class ReadFile according the format of your file
-			String content = ReadFile.loadFile(filePath); 
-			for(int i=minWindow;i<=maxWindow;i++)
+		for(int i=minWindow;i<=maxWindow;i++)
+		{
+			TextRank.setWindowSize(i); // set the size of co-occurance window
+			tempKeywordScore=TextRank.getWordScore(title,content);
+			Iterator<Map.Entry<String, Float>> it = tempKeywordScore.entrySet().iterator();
+			while (it.hasNext())
 			{
-				TextRank.setWindowSize(i); // set the size of co-occurance window
-				tempKeywordScore=TextRank.getWordScore("",content);
-				Iterator<Map.Entry<String, Float>> it = tempKeywordScore.entrySet().iterator();
-				while (it.hasNext())
-				{
-					Map.Entry<String, Float> entry = it.next();
-					key = entry.getKey();
-					value = entry.getValue();
-					if(allKeywordScore.containsKey(key))
-						allKeywordScore.put(key, allKeywordScore.get(key)+value);
-					else
-						allKeywordScore.put(key, value);			
-				}
+				Map.Entry<String, Float> entry = it.next();
+				key = entry.getKey();
+				value = entry.getValue();
+				if(allKeywordScore.containsKey(key))
+					allKeywordScore.put(key, allKeywordScore.get(key)+value);
+				else
+					allKeywordScore.put(key, value);			
 			}
-			// sort the result in terms of their score
+		}
+			// sort the result in terms of the score of each word
 			List<Map.Entry<String, Float>> entryList = new ArrayList<Map.Entry<String,Float>>(allKeywordScore.entrySet());
 			Collections.sort(entryList,new Comparator<Map.Entry<String, Float>>()
 			{
@@ -85,9 +74,9 @@ public class TextRankWithMultiWin
 			{
 				fileKeywords.add(entryList.get(j).getKey());
 			}
-			result.put(filePath,fileKeywords);
-		}
-		return result;
+			
+		return fileKeywords;
 	}
 
 }
+

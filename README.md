@@ -109,6 +109,8 @@ Also,you can set the number of keywords to extract by `TextRankWithMultiWin.setK
 
 This part includes two algorithms: `TextRank-score multipy IDF` and `TextRank and TF-IDF vote together`, which are both based on the original TextRank and TF-IDF.
 
+**To be able to run these two algorithms, remember to specify how to read the content of file under the directory in the `ReadFile.java `, the following part `3.2 ReadFile` will tell you details about this**
+
 #### 1.4.1 TextRank-score multipy IDF
 
 Source File: `TextRankWithTFIDF.java`

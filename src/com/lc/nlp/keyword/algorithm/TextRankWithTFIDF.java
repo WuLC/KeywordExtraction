@@ -2,9 +2,9 @@
 * Author: WuLC
 * Date:   2016-05-25 09:18:09
 * Last modified by:   WuLC
-* Last Modified time: 2016-05-25 09:57:05
+* Last Modified time: 2016-05-25 14:50:52
 * Email: liangchaowu5@gmail.com
-**************************************************
+******************************************************
 * Function: combine TextRank and TF-IDF to extract keywords 
 * Input: path of the directory of the corpus
 * Output: keywords extracted for each document
@@ -13,7 +13,6 @@
 package com.lc.nlp.keyword.algorithm;
 
 import java.util.*;
-
 import com.lc.nlp.parsedoc.ReadDir;
 import com.lc.nlp.parsedoc.ReadFile;
 

@@ -2,7 +2,7 @@
 * Author: WuLC
 * Date:   2016-05-18 23:10:12
 * Last modified by:   WuLC
-* Last Modified time: 2016-05-19 22:32:56
+* Last Modified time: 2016-05-28 11:38:02
 * Email: liangchaowu5@gmail.com
 * **************************************************************
 * Function: extract keywords of document through TextRank algorithm
@@ -23,7 +23,7 @@ public class TextRank
     static final int max_iter = 200;        //max iteration times
     static final float min_diff = 0.0001f;  //condition to judge whether recurse or not
     private static  int nKeyword=5;         //number of keywords to extract,default 5
-    private static  int coCurrenceWindow=3; //size of the co-occur window, default 3
+    private static  int coOccuranceWindow=3; //size of the co-occurance window, default 3
     
     // change default parameters
     public static void setKeywordNumber(int sysKeywordNum)
@@ -34,7 +34,7 @@ public class TextRank
     
     public static void setWindowSize(int window)
     {
-    	coCurrenceWindow = window;
+    	coOccuranceWindow = window;
     }
 
     
@@ -77,7 +77,7 @@ public class TextRank
             }
         }
 
-        System.out.print("window:"+coCurrenceWindow+"\nkeywordNum: "+nKeyword);
+        System.out.print("window:"+coOccuranceWindow+"\nkeywordNum: "+nKeyword);
         return sysKeywordList;
     }
     
@@ -137,7 +137,7 @@ public class TextRank
                  words.put(w, new HashSet<String>());
              }
              que.offer(w);    // insert into the end of the queue
-             if (que.size() > coCurrenceWindow)
+             if (que.size() > coOccuranceWindow)
              {
                  que.poll();  // pop from the queue
              }

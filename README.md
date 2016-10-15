@@ -1,10 +1,10 @@
 # Keyword Extraction in Java
 
-Several implementations of keyword extraction,including TextRank,TF-IDF,TextRank along with TFTF-IDF.Segment words and filter stop words relies on [HanLP](https://github.com/hankcs/HanLP)
+Tmplementation of serveral algorithms for keyword extraction,including TextRank,TF-IDF,TextRank along with TFTF-IDF.Cutting words and filtering stop words rely on [HanLP](https://github.com/hankcs/HanLP)
 
 The repository mainly consists of three parts:
 
-**1. Algorithm**: implementation of serveral algorithms of keyword exraction,including TextRank,TF-IDF and methonds of integrate TextRank with TFTF-IDF
+**1. Algorithm**: implementation of serveral algorithms for keyword exraction,including TextRank,TF-IDF and methonds of integrate TextRank with TFTF-IDF
 
 **2.Evaluate:**the method to evaluate the result of the algorithm,currently only the F1 Score if available
 
@@ -79,7 +79,7 @@ G:/corpusMini/00003.xml=[止痛片, 伤肾, 医生]
 }
 ```
 
-**To be able to run the above code, remember to specify how to read the content of file under the directory in the `ReadFile.java `, the following part `3.2 ReadFile` will tell you details about this**
+**To be able to run the above code, remember to specify how to read the content of file under the directory in the `ReadFile.java `, the following part `3.2 ReadFile` will explain the details about this to you**
 
 
 ### 1.3 TextRank With Multiple Window
@@ -203,9 +203,11 @@ as you can see,the method can also read the files of subdirectory `test`,because
 `ReadFile` class is designed to load the content of file of a certain type, **remember you had got to implement the method `loadFile` in trems of the type of your file.** The default method in it is to parse the XML files [here](https://github.com/iamxiatian/data/tree/master/sohu-dataset) ,and the code is like this
 
 ```java
-/*remember to replace the following code to yours in terms of the type of your files*/
+//remember to replace the following code to yours in terms of the type of your files
+/*
 String filePath = "G:/corpusMini/00001.xml";
 ParseXML parser = new ParseXML();
 String content = parser.parseXML(filePath, "content");
+*/
 ```
 

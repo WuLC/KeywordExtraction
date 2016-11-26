@@ -1,12 +1,12 @@
 # Keyword Extraction in Java
 
-Tmplementation of serveral algorithms for keyword extraction,including TextRank,TF-IDF,TextRank along with TFTF-IDF.Cutting words and filtering stop words rely on [HanLP](https://github.com/hankcs/HanLP)
+Implementation of serveral algorithms for keyword extraction,including TextRank,TF-IDF,TextRank along with TFTF-IDF.Cutting words and filtering stop words are relied on [HanLP](https://github.com/hankcs/HanLP)
 
 The repository mainly consists of three parts:
 
-**1. Algorithm**: implementation of serveral algorithms for keyword exraction,including TextRank,TF-IDF and methonds of integrate TextRank with TFTF-IDF
+**1. Algorithm**: implementation of serveral algorithms for keyword exraction,including TextRank,TF-IDF and combining of  TextRank and TF-IDF
 
-**2.Evaluate:**the method to evaluate the result of the algorithm,currently only the F1 Score if available
+**2.Evaluate:**the method to evaluate the result of the algorithm,currently only the F1 Score is available
 
 **3.Parse Documents:**methods provided to read the contens of the corpus used for test
 
@@ -37,7 +37,7 @@ System.out.println(TextRank.getKeyword(title, content));
 // Output:[自动, 关键词, 领域, 提取, 抽取, 自动识别]
 ```
 
-From the output you can see clearly the number of keywords has change due to `TextRank.setKeywordNumber(6);`,and the size of co-occur window is not visible in the result but will affect the resutl if you are aware of the principle of TextRank algorithm.
+From the output you can see clearly the number of keywords has change due to `TextRank.setKeywordNumber(6);`,and the size of co-occur window is not visible in the result but will affect the resutlt if you are aware of the principle of TextRank algorithm.
 
 
 ### 1.2 TF-IDF
@@ -79,7 +79,7 @@ G:/corpusMini/00003.xml=[止痛片, 伤肾, 医生]
 }
 ```
 
-**To be able to run the above code, remember to specify how to read the content of file under the directory in the `ReadFile.java `, the following part `3.2 ReadFile` will explain the details about this to you**
+**To be able to run the above code, remember to specify how to read the content of file under the directory in the `ReadFile.java `, the following part `3.2 ReadFile` will explain the details about this**
 
 
 ### 1.3 TextRank With Multiple Window
@@ -173,7 +173,7 @@ String[] manualKeywords = {"关键词","自动提取"};
 List<Float> result = F1Score.calculate(sysKeywords,manualKeywords);
 System.out.println(result);
 /*output*/
-[20.0, 50.0, 28.57] represents precision = 20% recall=50% F1 =28.57%
+[20.0, 50.0, 28.57] // the three numbers represent precision = 20% recall=50% F1 =28.57%
 ```
 
 

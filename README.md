@@ -11,6 +11,8 @@ The repository mainly consists of three parts:
 **3.Parse Documents:**methods provided to read the contens of the corpus used for test
 
 
+More details can be found in [this passage](http://wulc.me/2016/05/28/%E5%85%B3%E9%94%AE%E8%AF%8D%E6%8A%BD%E5%8F%96%E7%AE%97%E6%B3%95%E7%9A%84%E7%A0%94%E7%A9%B6/)
+
 ## 1. Algorithm
 
 ### 1.1 TextRank
